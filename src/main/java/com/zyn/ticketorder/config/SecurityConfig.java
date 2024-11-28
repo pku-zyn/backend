@@ -44,7 +44,7 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable()) // 禁用 CSRF
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/api/users/login", "/api/users/register").permitAll() // 允许匿名访问
+                        .requestMatchers("/api/users/login", "/api/users/register","/api/matches/getallmatches").permitAll() // 允许匿名访问
                         .anyRequest().authenticated() // 其他请求需要认证
                 )
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class); // 添加 JWT 过滤器
